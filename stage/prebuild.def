@@ -1,0 +1,10 @@
+BootStrap: docker
+From: ubuntu:22.04
+
+%help
+    This Singularity definition contains a Mash and OHM installation dependencies
+
+%post
+    apt-get update && apt-get install -y wget tar git curl zip unzip build-essential libgtest-dev cmake python3-pip xxhash pkg-config
+    ldconfig
+    ldconfig -p

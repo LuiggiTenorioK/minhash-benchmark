@@ -1,0 +1,44 @@
+BootStrap: docker
+From: ubuntu:22.04
+
+%help
+    This Singularity definition contains a Mash and OHM installation
+
+%post
+    apt-get update && apt-get install -y wget tar git curl zip unzip build-essential libgtest-dev cmake python3-pip xxhash pkg-config
+    ldconfig
+    
+    # Install GTEST
+    cd /usr/src/gtest
+    cmake CMakeLists.txt
+    make
+    cp ./lib/libgtest*.a /usr/lib
+    export GTEST_CFLAGS=$(cd ./lib; pwd)
+    export GTEST_LIBS=$(cd ./lib; pwd)
+    cd ~
+
+    # Install xxHash
+    wget https://github.com/Cyan4973/xxHash/archive/refs/tags/v0.8.1.tar.gz
+    tar -xvzf v0.8.1.tar.gz
+    cd xxHash-0.8.1
+    make
+    make install
+    cd ..
+    ldconfig
+
+    # Install OMH
+    wget https://github.com/Kingsford-Group/omhismb2019/releases/download/v0.0.2/omh_compute-0.0.2.tar.gz
+    tar -xvzf omh_compute-0.0.2.tar.gz
+    cd omh_compute-0.0.2
+    ./configure
+    make
+    make install
+    cd ..
+    ldconfig
+
+    # Install mash
+    wget https://github.com/marbl/Mash/releases/download/v2.3/mash-Linux64-v2.3.tar
+    tar -xvf mash-Linux64-v2.3.tar
+    mv mash-Linux64-v2.3/mash /usr/bin/mash
+
+%runscript
