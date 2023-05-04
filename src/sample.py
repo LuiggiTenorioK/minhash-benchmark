@@ -3,7 +3,7 @@
 import gzip
 import json
 
-SAMPLE_SIZE = 1000
+SAMPLE_SIZE = 10000
 
 DATA_PATHS = [
     {

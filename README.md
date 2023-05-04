@@ -33,3 +33,4 @@ Steps:
 * Make histogram
 * Run hypothesis testing?
 
+* Running OMH distance 8 min 20 sec for 3 pair sets
