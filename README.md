@@ -14,6 +14,9 @@ singularity build container.img container.def
 # Get root file listing
 wget --no-remove-listing ftp://ftp.imicrobe.us/projects/26/
 
+# Get Assembly file
+wget ftp://ftp.imicrobe.us:21/projects/26/CAM_PROJ_GOS.asm.fa.gz
+
 # Download all sample reads
 wget -r --no-parent -A *.fa.gz ftp://ftp.imicrobe.us/projects/26/samples
 ```

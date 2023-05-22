@@ -3,3 +3,6 @@ data/ftp.imicrobe.us
 *.dist
 *.dist.gz
 .ipynb_checkpoints
+CAM_PROJ_GOS.asm.fa
+CAM_PROJ_GOS.asm.fa.gz
+*.asm.fa
