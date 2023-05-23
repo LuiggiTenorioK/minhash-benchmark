@@ -6,3 +6,4 @@ data/ftp.imicrobe.us
 CAM_PROJ_GOS.asm.fa
 CAM_PROJ_GOS.asm.fa.gz
 *.asm.fa
+!mags-*.dist
