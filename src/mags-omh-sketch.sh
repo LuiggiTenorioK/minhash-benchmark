@@ -85,3 +85,21 @@ DIFF=$((date2-date1))
 echo "Duration: $((DIFF / 3600 )) hours $(((DIFF % 3600) / 60)) minutes $((DIFF % 60)) seconds"
 
 omh_compare_sketches "sketches/mags-omh-${S_PARAMS}.fa.omh" "sketches/mags-omh-${S_PARAMS}.fa.omh" > "distances/mags-omh-${S_PARAMS}.dist"
+
+
+# Set 6. Last run: 35 minutes 40 seconds
+K=5
+L=1
+M=1000
+S_PARAMS="k${K}-l${L}-m${M}"
+
+date1=$(date +"%s")
+echo "Started " "$(date)"
+
+omh_sketch -k "${K}" -l "${L}" -m "${M}" -o "sketches/mags-omh-${S_PARAMS}.fa.omh" ./data/mags_concat.fa
+
+date2=$(date +"%s")
+DIFF=$((date2-date1))
+echo "Duration: $((DIFF / 3600 )) hours $(((DIFF % 3600) / 60)) minutes $((DIFF % 60)) seconds"
+
+omh_compare_sketches "sketches/mags-omh-${S_PARAMS}.fa.omh" "sketches/mags-omh-${S_PARAMS}.fa.omh" > "distances/mags-omh-${S_PARAMS}.dist"
